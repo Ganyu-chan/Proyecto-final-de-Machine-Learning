@@ -51,7 +51,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1>🔮 Predicción Futurista de Precios de Casas</h1>", unsafe_allow_html=True)
+st.markdown("<h1> Predicción de Precios de Casas</h1>", unsafe_allow_html=True)
 
 model = joblib.load('housing_model.pkl')
 
@@ -59,16 +59,16 @@ with st.form("form_prediccion"):
     col1, col2 = st.columns(2)
 
     with col1:
-        longitude = st.number_input('🌍 Longitud', -124.0, -114.0, -119.0)
-        latitude = st.number_input('📍 Latitud', 32.0, 42.0, 37.0)
-        housing_median_age = st.number_input('🏗️ Edad media de la vivienda', 0, 100, 20)
-        total_rooms = st.number_input('🛏️ Total de habitaciones', 0, 10000, 2000)
-        total_bedrooms = st.number_input('🛌 Total de dormitorios', 0, 5000, 500)
+        longitude = st.number_input('🌍 Longitud(Entre -114 hasta -124)', -124.0, -114.0, -119.0)
+        latitude = st.number_input('📍 Latitud (Entre 32 hasta 42)', 32.0, 42.0, 37.0)
+        housing_median_age = st.number_input('🏗️ Edad media de la vivienda (Entre 0 y 100)', 0, 100, 20)
+        total_rooms = st.number_input('🛏️ Total de habitaciones (Entre 1 y 100)', 1, 100, 20)
+        total_bedrooms = st.number_input('🛌 Total de dormitorios (entre 1 y 50)', 1, 50, 5)
 
     with col2:
         population = st.number_input('👥 Población', 0, 10000, 1000)
         households = st.number_input('🏠 Hogares', 0, 5000, 400)
-        median_income = st.number_input('💰 Ingreso medio', 0.0, 15.0, 3.0)
+        median_income = st.number_input('💰 Ingreso medio (Entre 0 a 15$/h)', 0.0, 15.0, 3.0)
         ocean_proximity = st.selectbox('🌊 Cercanía al océano', 
                                        ['NEAR BAY', 'INLAND', '<1H OCEAN', 'NEAR OCEAN', 'ISLAND'])
 
